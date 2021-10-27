@@ -26,7 +26,7 @@ module.exports = {
 
   removeList: async function (req, res) {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const deletedList = await List.destroy({ where: { id } });
       res.status(200).json(deletedList);
     } catch (err) {
@@ -36,7 +36,7 @@ module.exports = {
 
   updateList: async function (req, res) {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const { title } = req.body;
       const updatedList = await List.update({ title }, { where: { id } });
       res.status(201).json(updatedList);

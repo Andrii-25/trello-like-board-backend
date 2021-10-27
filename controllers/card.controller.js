@@ -26,7 +26,7 @@ module.exports = {
 
   removeCard: async function (req, res) {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const deletedCard = await Card.destroy({ where: { id } });
       res.status(200).json(deletedCard);
     } catch (err) {
@@ -36,7 +36,7 @@ module.exports = {
 
   updateCard: async function (req, res) {
     try {
-      const { id } = req.query;
+      const { id } = req.params;
       const { title } = req.body;
       const updatedCard = await Card.update({ title }, { where: { id } });
       res.status(201).json(updatedCard);
