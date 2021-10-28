@@ -3,9 +3,8 @@ const { Card } = require("../models");
 module.exports = {
   addCard: async function (req, res) {
     try {
-      const { title } = req.body;
-      const { list_id } = req.query;
-      const card = await Card.create({ title, list: list_id });
+      const { title, list } = req.body;
+      const card = await Card.create({ title, list });
       res.status(201).json(card);
     } catch (err) {
       res.json({ message: err });
@@ -37,11 +36,22 @@ module.exports = {
 
   updateCard: async function (req, res) {
     try {
-      const { id } = req.params;
+      const { id } = req.query;
       const { title } = req.body;
+      const updatedCard = await Card.update({ title }, { where: { id } });
+      res.status(201).json(updatedCard);
+    } catch (err) {
+      res.json({ message: err });
+    }
+  },
+
+  updateCardList: async function (req, res) {
+    try {
+      const { id } = req.params;
       const { list_id } = req.query;
+      console.log(list_id);
       const updatedCard = await Card.update(
-        { title, list: list_id },
+        { list: listId },
         { where: { id } }
       );
       res.status(201).json(updatedCard);
