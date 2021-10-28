@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "sequelize db:migrate"
+    "start": "node index.js"
   },
   "author": "Andrii",
   "license": "ISC",
