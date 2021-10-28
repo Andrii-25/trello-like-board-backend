@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "sequelize db:migrate --env production"
+    "build": "sequelize db:migrate"
   },
   "author": "Andrii",
   "license": "ISC",
