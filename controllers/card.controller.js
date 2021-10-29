@@ -49,9 +49,8 @@ module.exports = {
     try {
       const { id } = req.params;
       const { list_id } = req.query;
-      console.log(list_id);
       const updatedCard = await Card.update(
-        { list: listId },
+        { list: list_id },
         { where: { id } }
       );
       res.status(201).json(updatedCard);
